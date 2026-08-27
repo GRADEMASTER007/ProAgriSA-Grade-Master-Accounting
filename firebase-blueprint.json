@@ -1,0 +1,275 @@
+{
+  "entities": {
+    "companies": {
+      "title": "Company Settings",
+      "description": "Company registration, branding, banking details and default invoice terms",
+      "type": "object",
+      "properties": {
+        "companyName": { "type": "string" },
+        "tradingName": { "type": "string" },
+        "registrationNumber": { "type": "string" },
+        "vatNumber": { "type": "string" },
+        "physicalAddress": { "type": "string" },
+        "postalAddress": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "website": { "type": "string" },
+        "additionalWebsites": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "bankName": { "type": "string" },
+        "accountName": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "branchCode": { "type": "string" },
+        "swiftCode": { "type": "string" },
+        "paymentInstructions": { "type": "string" },
+        "defaultCurrency": { "type": "string" },
+        "defaultVatRate": { "type": "number" },
+        "paymentTerms": { "type": "string" },
+        "quoteValidityDays": { "type": "number" },
+        "invoiceTerms": { "type": "string" },
+        "footerText": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "clients": {
+      "title": "Clients",
+      "description": "Client profile, contacts, addresses, payment terms and client-specific pricing",
+      "type": "object",
+      "properties": {
+        "companyName": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "billingAddress": { "type": "string" },
+        "shippingAddress": { "type": "string" },
+        "city": { "type": "string" },
+        "province": { "type": "string" },
+        "country": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "vatNumber": { "type": "string" },
+        "website": { "type": "string" },
+        "currency": { "type": "string" },
+        "paymentTerms": { "type": "string" },
+        "clientType": { "type": "string" },
+        "specialPricing": { "type": "object" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["companyName", "contactPerson", "email"]
+    },
+    "products": {
+      "title": "Products",
+      "description": "Agricultural products, plants, fertilizers and inputs catalog with tiered pricing",
+      "type": "object",
+      "properties": {
+        "sku": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "unit": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "standardPrice": { "type": "number" },
+        "wholesalePrice": { "type": "number" },
+        "retailPrice": { "type": "number" },
+        "currency": { "type": "string" },
+        "vatRate": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["sku", "name", "standardPrice"]
+    },
+    "shipping": {
+      "title": "Shipping Rates",
+      "description": "Shipping and courier rates by destination country, province, carrier and type",
+      "type": "object",
+      "properties": {
+        "destinationCountry": { "type": "string" },
+        "destinationProvince": { "type": "string" },
+        "shippingCompany": { "type": "string" },
+        "shippingMethod": { "type": "string" },
+        "cost": { "type": "number" },
+        "currency": { "type": "string" },
+        "deliveryTime": { "type": "string" },
+        "minimumOrder": { "type": "number" },
+        "rateType": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["destinationCountry", "cost"]
+    },
+    "quotes": {
+      "title": "Quotes",
+      "description": "Quotations with frozen line items, client snapshot, shipping, tax and conversion status",
+      "type": "object",
+      "properties": {
+        "quoteNumber": { "type": "string" },
+        "clientId": { "type": "string" },
+        "clientSnapshot": { "type": "object" },
+        "quoteDate": { "type": "string" },
+        "validUntil": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discountTotal": { "type": "number" },
+        "shippingCost": { "type": "number" },
+        "shippingDetails": { "type": "string" },
+        "vatRate": { "type": "number" },
+        "vatAmount": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "currency": { "type": "string" },
+        "paymentTerms": { "type": "string" },
+        "notes": { "type": "string" },
+        "terms": { "type": "string" },
+        "status": { "type": "string" },
+        "convertedInvoiceId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["quoteNumber", "clientId", "items", "grandTotal"]
+    },
+    "invoices": {
+      "title": "Invoices",
+      "description": "Final tax invoices with payment tracking, frozen items, banking info snapshot and balance due",
+      "type": "object",
+      "properties": {
+        "invoiceNumber": { "type": "string" },
+        "quoteId": { "type": "string" },
+        "clientId": { "type": "string" },
+        "clientSnapshot": { "type": "object" },
+        "invoiceDate": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discountTotal": { "type": "number" },
+        "shippingCost": { "type": "number" },
+        "shippingDetails": { "type": "string" },
+        "vatRate": { "type": "number" },
+        "vatAmount": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "balanceDue": { "type": "number" },
+        "currency": { "type": "string" },
+        "paymentInstructions": { "type": "string" },
+        "bankingSnapshot": { "type": "object" },
+        "notes": { "type": "string" },
+        "terms": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["invoiceNumber", "clientId", "items", "grandTotal"]
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "Recorded payments linked to invoices with payment method and reference",
+      "type": "object",
+      "properties": {
+        "invoiceId": { "type": "string" },
+        "invoiceNumber": { "type": "string" },
+        "clientId": { "type": "string" },
+        "paymentDate": { "type": "string" },
+        "amount": { "type": "number" },
+        "currency": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "reference": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["invoiceId", "amount", "paymentDate"]
+    },
+    "communications": {
+      "title": "Communication Logs",
+      "description": "Email and WhatsApp logs for quotes, invoices, and reminders",
+      "type": "object",
+      "properties": {
+        "clientId": { "type": "string" },
+        "clientName": { "type": "string" },
+        "type": { "type": "string" },
+        "documentType": { "type": "string" },
+        "documentId": { "type": "string" },
+        "documentNumber": { "type": "string" },
+        "recipient": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string" },
+        "sentAt": { "type": "string" }
+      }
+    },
+    "knowledge": {
+      "title": "Business Knowledge Base",
+      "description": "Company policies, farming guides, product descriptions, FAQs and operational information",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "content": { "type": "string" },
+        "tags": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "content"]
+    },
+    "whatsapp_conversations": {
+      "title": "WhatsApp Conversations",
+      "description": "Active WhatsApp chat sessions with metadata and unread counts",
+      "type": "object",
+      "properties": {
+        "clientPhone": { "type": "string" },
+        "clientName": { "type": "string" },
+        "lastMessage": { "type": "string" },
+        "lastTimestamp": { "type": "string" },
+        "unreadCount": { "type": "number" },
+        "isAIEnabled": { "type": "boolean" },
+        "assignedCompany": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    },
+    "whatsapp_messages": {
+      "title": "WhatsApp Messages",
+      "description": "Individual messages within a WhatsApp conversation",
+      "type": "object",
+      "properties": {
+        "conversationId": { "type": "string" },
+        "direction": { "type": "string", "enum": ["incoming", "outgoing"] },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" },
+        "type": { "type": "string" },
+        "mediaUrl": { "type": "string" }
+      }
+    },
+    "email_conversations": {
+      "title": "Email Conversations",
+      "description": "Active email threads with metadata and unread counts",
+      "type": "object",
+      "properties": {
+        "clientEmail": { "type": "string" },
+        "clientName": { "type": "string" },
+        "subject": { "type": "string" },
+        "lastMessage": { "type": "string" },
+        "lastTimestamp": { "type": "string" },
+        "unreadCount": { "type": "number" },
+        "status": { "type": "string" }
+      }
+    },
+    "activities": {
+      "title": "System Activities",
+      "description": "Log of system events, user actions, and automated processes",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "userId": { "type": "string" },
+        "entityId": { "type": "string" }
+      }
+    }
+  }
+}

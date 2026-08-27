@@ -1,6 +1,6 @@
 {
-  "name": "ProAgriSA Grade Master Accounting",
-  "description": "Private AI-Powered CRM, Quotation & Invoicing System with intelligent business assistant",
+  "name": "ProAgriSA Grade Master & Healthy Fields Business Hub",
+  "description": "Enterprise AI-Powered Agricultural CRM, Multi-Channel Communication, Phyto Logistics & Smart Accounting Terminal",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
