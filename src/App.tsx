@@ -49,7 +49,7 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0B0E] flex flex-col font-sans text-[#D1D5DB] antialiased selection:bg-[#EAB308] selection:text-[#0A0B0E]">
+    <div className="min-h-screen bg-[#f4f6f8] flex flex-col font-sans text-[#52606d] antialiased selection:bg-[#dff2da] selection:text-[#1f2933]">
       {/* Top Navigation */}
       <Navbar
         activeSection={activeSection}
@@ -59,7 +59,7 @@ const MainContent: React.FC = () => {
       />
 
       {/* Main Workspace Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 lg:p-6 transition-all duration-150">
+      <main className="app-main flex-1 w-full transition-all duration-150">
         {activeSection === 'dashboard' && (
           <DashboardView
             onNavigate={handleNavigate}
@@ -126,7 +126,7 @@ const MainContent: React.FC = () => {
       </main>
 
       {/* High Density Footer */}
-      <footer className="border-t border-[#1F2430] bg-[#0E1118] py-3 text-center text-xs text-[#6B7280]">
+      <footer className="app-footer text-center">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
             <span className="inline-block w-2 h-2 rounded-full bg-[#EAB308] animate-pulse"></span>
